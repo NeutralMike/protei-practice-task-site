@@ -26,7 +26,7 @@
             </activation>
             <id>manager</id>
             <modules>
-                <module>app/list-manager</module>
+                <module>app/listmanager</module>
                 <module>modules/model</module>
             </modules>
         </profile>

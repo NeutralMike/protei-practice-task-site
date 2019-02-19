@@ -10,7 +10,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>list-manager</artifactId>
+    <artifactId>listmanager</artifactId>
     <packaging>war</packaging>
 
     <!--<properties>-->
@@ -63,17 +63,17 @@
         </resources>
 
 
-        <!--<plugins>-->
+        <plugins>
 
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-war-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<webXml>src\webapp\WEB-INF\web.xml</webXml>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webXml>src\webapp\WEB-INF\web.xml</webXml>
+                </configuration>
+            </plugin>
 
-        <!--</plugins>-->
+        </plugins>
 
         <!--<pluginManagement>-->
             <!--<plugins>-->
