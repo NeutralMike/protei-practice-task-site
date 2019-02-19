@@ -4,7 +4,7 @@
 <module rename-to="Manager">
 
     <inherits name="com.google.gwt.user.User"/>
-    <entry-point name="client.Manager"/>
+    <entry-point class="client.Manager"/>
     <servlet path="/ManagerService" class="server.ManagerServiceImpl"/>
     <source path="client"/>
 
