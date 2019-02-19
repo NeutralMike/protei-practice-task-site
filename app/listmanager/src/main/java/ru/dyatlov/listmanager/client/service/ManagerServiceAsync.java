@@ -1,4 +1,4 @@
-package client;
+package ru.dyatlov.listmanager.client.service;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 

@@ -1,24 +1,20 @@
-package client;
+package ru.dyatlov.listmanager.client;
 
+import ru.dyatlov.listmanager.client.service.ManagerService;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.ClickEvent;
 
 public class Manager implements EntryPoint {
-
 
     public void onModuleLoad() {
         final Button button = new Button("Click me");
         final Label label = new Label();
-        button.addClickHandler(new ClickHandler() {
-            public void onClick(ClickEvent event) {
-                if (label.getText().equals("")) {
-                    ManagerService.App.getInstance().getMessage("Hello", new ManagerAsyncCallback(label));
-                } else {
-                    label.setText("");
-                }
+        button.addClickHandler(event -> {
+            if (label.getText().equals("")) {
+                ManagerService.App.getInstance().getMessage("Hello", new ManagerAsyncCallback(label));
+            } else {
+                label.setText("");
             }
         });
 
@@ -38,7 +34,7 @@ public class Manager implements EntryPoint {
         }
 
         public void onFailure(Throwable throwable) {
-            label.setText("Failed to receive answer from server!");
+            label.setText("Failed to receive answer from ru.dyatlov.listmanager.server!");
         }
     }
 }

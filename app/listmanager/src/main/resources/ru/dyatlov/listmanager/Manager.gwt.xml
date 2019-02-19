@@ -2,10 +2,9 @@
         "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
 
 <module rename-to="Manager">
-
     <inherits name="com.google.gwt.user.User"/>
-    <entry-point name="client.Manager"/>
-    <servlet path="/ManagerService" class="server.ManagerServiceImpl"/>
-    <source path="client"/>
 
+    <entry-point class="ru.dyatlov.listmanager.client.Manager"/>
+
+    <source path="client"/>
 </module>

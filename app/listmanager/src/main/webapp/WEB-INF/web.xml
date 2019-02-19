@@ -5,10 +5,14 @@
 <web-app>
     <servlet>
         <servlet-name>ManagerService</servlet-name>
-        <servlet-class>server.ManagerServiceImpl</servlet-class>
+        <servlet-class>ru.dyatlov.listmanager.server.ManagerServiceImpl</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ManagerService</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/Manager/ManagerService</url-pattern>
     </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 </web-app>

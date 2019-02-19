@@ -1,10 +1,10 @@
-package client;
+package ru.dyatlov.listmanager.client.service;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
-@RemoteServiceRelativePath("MySampleApplicationService")
+@RemoteServiceRelativePath("ManagerService")
 public interface ManagerService extends RemoteService {
 
     String getMessage(String msg);
