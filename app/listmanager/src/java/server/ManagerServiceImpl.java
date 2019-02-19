@@ -1,7 +1,7 @@
-package java.server;
+package server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-import java.client.ManagerService;
+import client.ManagerService;
 
 public class ManagerServiceImpl extends RemoteServiceServlet implements ManagerService {
     public String getMessage(String msg) {
