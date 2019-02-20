@@ -56,11 +56,34 @@
     <div class="row">
         <div class="col-md-4">
             <div class="left-sidebar">
-                <div class="row">Filter</div>
+                <div class="row-2">Filter</div>
                 <div class="row">
                         <form class="form-inline my-2 my-lg-0">
                             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                         </form>
+                </div>
+                <br>
+                <div class="row-2">
+                    <div class="row">Duration</div>
+<input type="range" class="custom-range" min="0" max="31" step="1" id="customRange3" style="width: 30%;">
+
+                </div>
+                <br>
+                <div class="row">
+                    For
+                    <form>
+                        <select name="for" id="" size="1">
+                            <option>day</option>
+                            <option>week</option>
+                            <option>month</option>
+                            <option value="all_time">all time</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="row">
+                    <form action="">
+                        <input type="checkbox">Anonimus
+                    </form>
                 </div>
             </div>
         <!-- /.left-sidebar --></div>
@@ -70,23 +93,23 @@
             <button type="button" class="btn btn-danger">Delete</button>
             <!-- .row>.col+.col.content>(.col.preview+.row.title>.col+.row.description>(.col+.col)) -->
             <div class="row">
-                <div class="col">
+                <div class="col-1">
                     <form>
                         <input type="checkbox">
                     </form>
                 </div>
                 <div class="col content">
                     <div class="row">
-                    <div class="col preview"><img src="/images/preview.jpg" widt="50px" height="50px" alt=""></div>
+                    <div class="col-1 preview"><img src="/images/preview.jpg" widt="50px" height="50px" alt=""></div>
                     <div class="col">
                     <div class="row title">
                         <div class="col">Title</div>
                                             </div>
                         <div class="row description">
-                            <div class="col">Description</div>
+                            <div class="col"><img src="ds.jpg" width="10px" height="10px" alt="">Author</div>
                             <div class="col">
                                 <form>
-                                    <button type="button" class="btn btn-primary">Primary</button>
+                                    <button type="button" class="btn btn-primary">Edit</button>
                                 </form>
                             </div>
                         </div>
