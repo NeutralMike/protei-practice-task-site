@@ -4,22 +4,18 @@ import ru.dyatlov.listmanager.client.service.ManagerService;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import ru.dyatlov.model.client.TakeTable;
+import ru.dyatlov.listmanager.client.ui.Table;
 
 public class Manager implements EntryPoint {
 
     public void onModuleLoad() {
-        final Button button = new Button("Click me");
-        final Label label = new Label();
-        button.addClickHandler(event -> {
-            if (label.getText().equals("")) {
-                ManagerService.App.getInstance().getMessage("Hello", new ManagerAsyncCallback(label));
-            } else {
-                label.setText("");
-            }
-        });
 
-        RootPanel.get("slot1").add(button);
-        RootPanel.get("slot2").add(label);
+            Table table = new Table();
+            table.setDeleteButtonText("Delete");
+            RootPanel.getBodyElement().appendChild(table.getElement());
+
+
     }
 
     private static class ManagerAsyncCallback implements AsyncCallback<String> {
