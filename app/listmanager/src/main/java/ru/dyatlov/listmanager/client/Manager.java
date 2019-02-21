@@ -12,25 +12,23 @@ public class Manager implements EntryPoint {
     public void onModuleLoad() {
 
             Table table = new Table();
-            table.setDeleteButtonText("Delete");
-            RootPanel.getBodyElement().appendChild(table.getElement());
-
+            RootPanel.get("deleteButton").add(table);
 
     }
 
-    private static class ManagerAsyncCallback implements AsyncCallback<String> {
-        private Label label;
-
-        ManagerAsyncCallback(Label label) {
-            this.label = label;
-        }
-
-        public void onSuccess(String result) {
-            label.getElement().setInnerHTML(result);
-        }
-
-        public void onFailure(Throwable throwable) {
-            label.setText("Failed to receive answer from ru.dyatlov.listmanager.server!");
-        }
-    }
+//    private static class ManagerAsyncCallback implements AsyncCallback<String> {
+//        private Label label;
+//
+//        ManagerAsyncCallback(Label label) {
+//            this.label = label;
+//        }
+//
+//        public void onSuccess(String result) {
+//            label.getElement().setInnerHTML(result);
+//        }
+//
+//        public void onFailure(Throwable throwable) {
+//            label.setText("Failed to receive answer from ru.dyatlov.listmanager.server!");
+//        }
+//    }
 }
