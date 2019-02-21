@@ -5,7 +5,5 @@
 
     <inherits name="com.google.gwt.user.User"/>
 
-    <entry-point class="ru.dyatlov.model.client.DB"/>
-
     <source path="client"/>
 </module>
