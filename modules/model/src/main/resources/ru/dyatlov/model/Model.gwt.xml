@@ -7,5 +7,5 @@
 
     <entry-point class="ru.dyatlov.model.client.DB"/>
 
-    <source path="server"/>
+    <source path="client"/>
 </module>
