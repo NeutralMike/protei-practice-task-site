@@ -2,6 +2,74 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 <g:HTMLPanel>
-        <g:Button ui:field="deleteButton"/>
+        <div class="main" style="padding: 10%;">
+                <div class="row">
+                        <div class="col-md-4">
+                                <div class="left-sidebar">
+                                        <g:Label ui:field="filterLabel" text="Filter"/>
+                                        <div class="row">
+                                                <g:FormPanel>
+                                                        <g:TextBox ui:field="searchBox"/>
+                                                </g:FormPanel>
+                                        </div>
+                                        <br/>
+                                        <div class="row-2">
+                                                <g:Label ui:field="durationLable" text="Duration"/>
+                                                <g:FormPanel>
+                                                        <g:TabBar ui:field="durationTabBar"/>
+                                                </g:FormPanel>
+                                                <input type="range" class="custom-range" min="0" max="31" step="1" id="customRange3" style="width: 30%;"/>
+
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                                <g:Label ui:field="forLable" text="For"/>
+                                                <form>
+                                                        <select name="for" id="" size="1">
+                                                                <option>day</option>
+                                                                <option>week</option>
+                                                                <option>month</option>
+                                                                <option value="all_time">all time</option>
+                                                        </select>
+                                                </form>
+                                        </div>
+                                        <div class="row">
+                                                <form action="">
+                                                        <input type="checkbox">Anonimus</input>
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-md-8">
+                                <g:Button ui:field="addButton" text="Add" />
+                                <g:Button ui:field="deleteButton" text="Delete" />
+                                <div class="row">
+                                        <div class="col-1">
+                                                <form>
+                                                        <input type="checkbox"/>
+                                                </form>
+                                        </div>
+                                        <div class="col content">
+                                                <div class="row">
+                                                        <div class="col-1 preview"><img src="/images/preview.jpg" width="50px" height="50px" alt=""/></div>
+                                                        <div class="col">
+                                                                <div class="row title">
+                                                                        <div class="col">Title</div>
+                                                                </div>
+                                                                <div class="row description">
+                                                                        <div class="col"><img src="/images/preview.jpg" width="10px" height="10px" alt=""/>Author</div>
+                                                                        <div class="col">
+                                                                                <form>
+                                                                                        <g:Button ui:field="editButton" text="Edit"/>
+                                                                                </form>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
 </g:HTMLPanel>
 </ui:UiBinder>

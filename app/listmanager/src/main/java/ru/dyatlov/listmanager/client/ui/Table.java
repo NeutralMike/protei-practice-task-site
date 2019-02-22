@@ -15,10 +15,28 @@ public class Table extends Composite {
 
     @UiField
     Button deleteButton;
+    @UiField
+    Button addButton;
+    @UiField
+    Button editButton;
+    @UiField
+    TextBox searchBox;
+    @UiField
+    Label filterLabel;
+    @UiField
+    TabBar durationTabBar;
 
     public Table() {
         initWidget(uiBinder.createAndBindUi(this));
-        deleteButton.setText("Delete");
+        setClasses();
+    }
+
+    public void setClasses(){
+        deleteButton.setStyleName("btn btn-danger");
+        addButton.setStyleName("btn btn-success");
+        editButton.setStyleName("btn btn-primary");
+        searchBox.setStyleName("form-control mr-sm-2");
+        durationTabBar.setStyleName("custom-range");
     }
 
     public void setDeleteButtonText(String text){
