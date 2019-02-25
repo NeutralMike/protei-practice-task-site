@@ -7,6 +7,12 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Label;
+
+import java.util.ArrayList;
+//import java.awt.*;
 
 public class Table extends Composite {
 
@@ -25,25 +31,45 @@ public class Table extends Composite {
     Label filterLabel;
     @UiField
     TabBar durationTabBar;
+    @UiField
+    CheckBox anonymousCheckbox;
+    @UiField
+    CheckBox done;
+    @UiField
+    Label anonymousLabel;
+    @UiField
+    Image authorLogo;
+    @UiField
+    Label author;
+    @UiField
+    Image preview;
+    @UiField
+    Label title;
+
+    public Table(ArrayList<String> table){
+        initWidget(uiBinder.createAndBindUi(this));
+        setClasses();
+        authorLogo.setUrl("/images/preview.jpg");
+        preview.setUrl("/images/preview.jpg");
+        title.setText("Title");
+        author.setText("Author");
+    }
 
     public Table() {
         initWidget(uiBinder.createAndBindUi(this));
         setClasses();
+        authorLogo.setUrl("/images/preview.jpg");
+        preview.setUrl("/images/preview.jpg");
+        title.setText("Title");
+        author.setText("Author");
     }
 
     public void setClasses(){
         deleteButton.setStyleName("btn btn-danger");
         addButton.setStyleName("btn btn-success");
         editButton.setStyleName("btn btn-primary");
-        searchBox.setStyleName("form-control mr-sm-2");
+        searchBox.setStyleName("form-control mr-sm-2 searchBox");
         durationTabBar.setStyleName("custom-range");
-    }
-
-    public void setDeleteButtonText(String text){
-        deleteButton.setText(text);
-    }
-    public Button getDeleteButton() {
-        return deleteButton;
     }
 
 }
