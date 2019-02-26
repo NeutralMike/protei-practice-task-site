@@ -4,6 +4,7 @@ import ru.dyatlov.model.server.DB;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Storage {
 
@@ -20,7 +21,7 @@ public class Storage {
     public List<Content> getRecords(){
         return DB.getDB();
     }
-    public String getRecordsInString(){
-        return DB.getDBInString();
+    public List<Map<String, String>> getRecordsMap(){
+        return DB.getMap();
     }
 }

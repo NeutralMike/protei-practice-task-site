@@ -13,6 +13,7 @@ import com.google.gwt.user.client.ui.Label;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 //import java.awt.*;
 
 public class Table extends Composite {
@@ -63,6 +64,18 @@ public class Table extends Composite {
         created.setText("Created");
     }
 
+
+    public void setStorage(List<Map<String,String>> data){
+        String result="";
+        storage.setWidth("200%");
+        storage.setHeight("70%");
+        for (Map<String,String> content:
+                data) {
+            result+=content.toString();
+            result+="\n";
+        }
+        storage.setText(result);
+    }
 
     public void setStorage(String data){
         storage.setWidth("200%");

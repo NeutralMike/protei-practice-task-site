@@ -2,6 +2,8 @@ package ru.dyatlov.model.client;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Content implements Serializable {
     private int id;
@@ -23,8 +25,16 @@ public class Content implements Serializable {
         this.anonymous=anonymous;
         this.created= new Date();
     }
-    public String getInString(){
-        return "id:" + id + "\n" + "title:" + title + "\n" + "author:" + author + "\n" +  "preview:" + preview + "\n" +  "authorLogo:" + authorLogo + "\n" + "anonymous:" + anonymous + "\n";
+
+    public Map<String,String> getMap(){
+        Map<String,String> result = new HashMap<>();
+        result.put("id",id+"");
+        result.put("title",title);
+        result.put("author", author);
+        result.put("preview",preview);
+        result.put("authorLogo",authorLogo);
+        result.put("anonymous",anonymous.toString());
+        return result;
     }
 
     public void setPreview(String preview){

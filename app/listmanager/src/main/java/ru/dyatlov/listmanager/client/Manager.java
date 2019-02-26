@@ -11,6 +11,7 @@ import ru.dyatlov.model.client.Content;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Manager implements EntryPoint {
 
@@ -51,14 +52,14 @@ public class Manager implements EntryPoint {
                 table.setAuthorText(s);
             }
         });
-        managerService.getContentListInString(new AsyncCallback<String>() {
+        managerService.getContentMap(new AsyncCallback<List<Map<String, String>>>() {
             @Override
             public void onFailure(Throwable throwable) {
                 table.setStorage("Failed");
             }
 
             @Override
-            public void onSuccess(String s) {
+            public void onSuccess(List<Map<String,String>> s) {
                 table.setStorage(s);
             }
         });

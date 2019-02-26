@@ -5,6 +5,7 @@ import ru.dyatlov.model.client.Content;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class DB {
 
@@ -28,10 +29,11 @@ public class DB {
     public static List<Content> getDB() {
         return db;
     }
-    public static String getDBInString(){
-        String result="";
-        for (Content content:db) {
-            result+=content.getInString();
+    public static List<Map<String,String>> getMap(){
+        List<Map<String,String>> result = new ArrayList<>();
+        for (Content content:db
+             ) {
+            result.add(content.getMap());
         }
         return result;
     }
