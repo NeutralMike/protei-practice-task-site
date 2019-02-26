@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 
 import java.util.ArrayList;
+import java.util.List;
 //import java.awt.*;
 
 public class Table extends Composite {
@@ -40,11 +41,17 @@ public class Table extends Composite {
     @UiField
     Label author;
     @UiField
+    Label created;
+    @UiField
     Image preview;
     @UiField
     Label title;
     @UiField
     ListBox forLB;
+
+
+    @UiField
+    TextArea storage;
 
     public Table() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -53,16 +60,14 @@ public class Table extends Composite {
         preview.setUrl("/images/preview.jpg");
         title.setText("Title");
         author.setText("Author");
+        created.setText("Created");
     }
 
 
-    public void setData(ArrayList<String> data){
-        initWidget(uiBinder.createAndBindUi(this));
-        setClasses();
-        authorLogo.setUrl("/images/preview.jpg");
-        preview.setUrl("/images/preview.jpg");
-        title.setText(data.get(0));
-        author.setText("Author");
+    public void setStorage(String data){
+        storage.setWidth("200%");
+        storage.setHeight("70%");
+        storage.setText(data);
     }
 
     private void setClasses(){
@@ -76,6 +81,9 @@ public class Table extends Composite {
     }
     public void setAuthorText(String text){
         author.setText(text);
+    }
+    public void setCreatedText(String text){
+        created.setText(text);
     }
 
 }
