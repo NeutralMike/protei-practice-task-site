@@ -15,6 +15,6 @@ public class Manager implements EntryPoint {
 
     public void onModuleLoad() {
         ArrayList<String> table = managerService.getDb();
-        RootPanel.get().add(new Table(table));
+        RootPanel.get().add(new Table());
     }
 }

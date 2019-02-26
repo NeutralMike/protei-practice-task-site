@@ -15,11 +15,11 @@ public class DB {
     }
 
     public ArrayList<String> getDB(){
-        ArrayList<String> result= new ArrayList<String>();
-        for(int i=0;i<db.size();i++){
+        ArrayList<String> result= new ArrayList<>();
+        for(Content content:db){
             try {
-                result.add(db.get(i).take());
-            } catch (Exception e){}
+                result.add(content.take());
+            } catch (Exception e){result.add("Can't take content!");}
         }
         return result;
     }
@@ -29,14 +29,14 @@ public class DB {
         String title;
         String author;
         String authorLogo;
-        public Content(int id,String title, String author,String preview, String authorLogo){
+        private Content(int id,String title, String author,String preview, String authorLogo){
             this.author=author;
             this.authorLogo=authorLogo;
             this.id=id;
             this.preview=preview;
             this.title=title;
         }
-        public String take(){
+        private String take(){
             return this.title+"/n" + this.author+"/n" + this.preview +"/n"+this.authorLogo;
         }
 
