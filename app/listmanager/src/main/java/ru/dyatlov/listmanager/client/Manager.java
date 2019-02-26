@@ -6,15 +6,36 @@ import ru.dyatlov.listmanager.client.service.ManagerService;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import ru.dyatlov.listmanager.client.service.ManagerServiceAsync;
 import ru.dyatlov.listmanager.client.ui.*;
 
 import java.util.ArrayList;
 
 public class Manager implements EntryPoint {
-//    private ManagerService managerService = GWT.create(ManagerService.class);
+    private ManagerServiceAsync managerService = ManagerService.App.getInstance();
 
     public void onModuleLoad() {
-//        ArrayList<String> table = managerService.getDb();
-        RootPanel.get().add(new Table());
+        Table table = new Table();
+        managerService.addContent("SomeTitle", "SomeAuthor", "/images/preview.jpg", "/images/preview.jpg", false, new AsyncCallback() {
+            @Override
+            public void onFailure(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+
+            }
+        });
+        managerService.getDB(new AsyncCallback<ArrayList<String>>() {
+            public void onSuccess(ArrayList<String> result) {
+                table.setData(result);
+            }
+
+            public void onFailure(Throwable caught) {
+                table.setTitleText("Failed");
+            }
+        });
+        RootPanel.get().add(table);
     }
 }

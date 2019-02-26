@@ -11,12 +11,6 @@
                             <g:TextBox ui:field="searchBox"/>
                         </div>
                         <br/>
-                        <div class="row-2">
-                            
-                            <g:Label ui:field="durationLabel" text="Duration"/>
-                            <g:DecoratedTabBar ui:field="durationTabBar"/>
-                        </div>
-                        <br/>
                         <div class="row">
                             <g:Label ui:field="forLabel" text="For"/>
                             <g:ListBox ui:field="forLB" visibleItemCount="1">
@@ -28,7 +22,7 @@
                         </div>
                         <div class="row">
                             <g:CheckBox ui:field="anonymousCheckbox"/>
-                            <g:Label ui:field="anonymousLabel" text="Anonimus"/>
+                            <g:Label ui:field="anonymousLabel" text="Anonymous"/>
                         </div>
                     </div>
                 </div>

@@ -30,8 +30,6 @@ public class Table extends Composite {
     @UiField
     Label filterLabel;
     @UiField
-    TabBar durationTabBar;
-    @UiField
     CheckBox anonymousCheckbox;
     @UiField
     CheckBox done;
@@ -48,15 +46,6 @@ public class Table extends Composite {
     @UiField
     ListBox forLB;
 
-    public Table(ArrayList<String> table){
-        initWidget(uiBinder.createAndBindUi(this));
-        setClasses();
-        authorLogo.setUrl("/images/preview.jpg");
-        preview.setUrl("/images/preview.jpg");
-        title.setText("Title");
-        author.setText("Author");
-    }
-
     public Table() {
         initWidget(uiBinder.createAndBindUi(this));
         setClasses();
@@ -66,12 +55,24 @@ public class Table extends Composite {
         author.setText("Author");
     }
 
-    public void setClasses(){
+
+    public void setData(ArrayList<String> data){
+        initWidget(uiBinder.createAndBindUi(this));
+        setClasses();
+        authorLogo.setUrl("/images/preview.jpg");
+        preview.setUrl("/images/preview.jpg");
+        title.setText("SomeTitle");
+        author.setText("Author");
+    }
+
+    private void setClasses(){
         deleteButton.setStyleName("btn btn-danger");
         addButton.setStyleName("btn btn-success");
         editButton.setStyleName("btn btn-primary");
         searchBox.setStyleName("form-control mr-sm-2 searchBox");
-        durationTabBar.setStyleName("custom-range");
+    }
+    public void setTitleText(String text){
+        title.setText(text);
     }
 
 }

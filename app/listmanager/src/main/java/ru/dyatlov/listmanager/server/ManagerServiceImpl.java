@@ -11,7 +11,10 @@ public class ManagerServiceImpl extends RemoteServiceServlet implements ManagerS
     public String getMessage(String msg) {
         return "Client said: \"" + msg + "\"<br>Server answered: \"Hi!\"";
     }
-    public ArrayList<String> getDb(){
+    public ArrayList<String> getDB(){
         return table.getDB();
+    }
+    public void addContent(String title, String author,String preview, String authorLogo, Boolean anonymous){
+        table.add(title,author,preview,authorLogo,anonymous);
     }
 }

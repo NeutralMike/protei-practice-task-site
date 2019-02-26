@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public interface ManagerService extends RemoteService {
 
     String getMessage(String msg);
-    ArrayList<String> getDb();
+    ArrayList<String> getDB();
+    void addContent(String title, String author,String preview, String authorLogo, Boolean anonymous);
     public static class App {
         private static ManagerServiceAsync ourInstance = GWT.create(ManagerService.class);
 
