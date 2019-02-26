@@ -19,17 +19,17 @@ public class Manager implements EntryPoint {
         managerService.addContent("SomeTitle", "SomeAuthor", "/images/preview.jpg", "/images/preview.jpg", false, new AsyncCallback() {
             @Override
             public void onFailure(Throwable throwable) {
-
+                table.setAuthorText("AddWtF");
             }
 
             @Override
             public void onSuccess(Object o) {
-
+                table.setAuthorText("Added");
             }
         });
         managerService.getDB(new AsyncCallback<ArrayList<String>>() {
             public void onSuccess(ArrayList<String> result) {
-                table.setData(result);
+                table.setTitleText("Succes");
             }
 
             public void onFailure(Throwable caught) {

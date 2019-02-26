@@ -1,12 +1,17 @@
 package ru.dyatlov.model.server;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.*;
 
 public class DB {
 
-    private ArrayList<Content> db;
+    private ArrayList<Content> db= new ArrayList<>();
+
+    public DB(){
+        db.add(new Content(0,"SomeTitle", "SomeAuthor", "/images/preview.jpg", "/images/preview.jpg", false));
+    }
 
     public void add(String title, String author,String preview, String authorLogo, Boolean anonymous){
         db.add(new Content(db.size(),title, author, preview, authorLogo, anonymous));

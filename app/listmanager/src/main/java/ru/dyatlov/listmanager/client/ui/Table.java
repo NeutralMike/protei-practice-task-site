@@ -61,7 +61,7 @@ public class Table extends Composite {
         setClasses();
         authorLogo.setUrl("/images/preview.jpg");
         preview.setUrl("/images/preview.jpg");
-        title.setText("SomeTitle");
+        title.setText(data.get(0));
         author.setText("Author");
     }
 
@@ -73,6 +73,9 @@ public class Table extends Composite {
     }
     public void setTitleText(String text){
         title.setText(text);
+    }
+    public void setAuthorText(String text){
+        author.setText(text);
     }
 
 }
