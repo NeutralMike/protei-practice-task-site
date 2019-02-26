@@ -45,6 +45,8 @@ public class Table extends Composite {
     Image preview;
     @UiField
     Label title;
+    @UiField
+    ListBox forLB;
 
     public Table(ArrayList<String> table){
         initWidget(uiBinder.createAndBindUi(this));

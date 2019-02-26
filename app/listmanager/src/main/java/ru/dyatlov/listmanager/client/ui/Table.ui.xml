@@ -12,20 +12,19 @@
                         </div>
                         <br/>
                         <div class="row-2">
+                            
                             <g:Label ui:field="durationLabel" text="Duration"/>
                             <g:DecoratedTabBar ui:field="durationTabBar"/>
                         </div>
                         <br/>
                         <div class="row">
                             <g:Label ui:field="forLabel" text="For"/>
-                            <form>
-                                <select name="for" id="" size="1">
-                                    <option>day</option>
-                                    <option>week</option>
-                                    <option>month</option>
-                                    <option value="all_time">all time</option>
-                                </select>
-                            </form>
+                            <g:ListBox ui:field="forLB" visibleItemCount="1">
+                                <g:item value="day">Day</g:item>
+                                <g:item value="week">Week</g:item>
+                                <g:item value="month">Month</g:item>
+                                <g:item value="allTime">All time</g:item>
+                            </g:ListBox>
                         </div>
                         <div class="row">
                             <g:CheckBox ui:field="anonymousCheckbox"/>

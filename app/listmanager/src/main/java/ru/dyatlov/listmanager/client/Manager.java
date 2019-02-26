@@ -11,10 +11,10 @@ import ru.dyatlov.listmanager.client.ui.*;
 import java.util.ArrayList;
 
 public class Manager implements EntryPoint {
-    private ManagerService managerService = GWT.create(ManagerService.class);
+//    private ManagerService managerService = GWT.create(ManagerService.class);
 
     public void onModuleLoad() {
-        ArrayList<String> table = managerService.getDb();
+//        ArrayList<String> table = managerService.getDb();
         RootPanel.get().add(new Table());
     }
 }
