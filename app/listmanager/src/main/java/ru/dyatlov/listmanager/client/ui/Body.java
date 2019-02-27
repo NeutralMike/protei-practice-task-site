@@ -7,34 +7,19 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Label;
 
 import java.util.List;
 import java.util.Map;
 
-public class Main extends Composite {
+public class Body extends Composite {
 
-    interface TableUiBinder extends UiBinder<Widget, Main> {}
+    interface TableUiBinder extends UiBinder<Widget, Body> {}
     private static TableUiBinder uiBinder = GWT.create(TableUiBinder.class);
 
     @UiField
     Button deleteButton;
     @UiField
     Button addButton;
-    @UiField
-    Button editButton;
-    @UiField
-    CheckBox done;
-    @UiField
-    Image authorLogo;
-    @UiField
-    Label author;
-    @UiField
-    Label created;
-    @UiField
-    Image preview;
-    @UiField
-    Label title;
     @UiField
     UListElement contentList;
     @UiField
@@ -45,14 +30,9 @@ public class Main extends Composite {
     @UiField
     TextArea storage;
 
-    public Main() {
+    public Body() {
         initWidget(uiBinder.createAndBindUi(this));
         setClasses();
-        authorLogo.setUrl("/images/preview.jpg");
-        preview.setUrl("/images/preview.jpg");
-        title.setText("Title");
-        author.setText("Author");
-        created.setText("Created");
         content.getStyle().setDisplay(Style.Display.NONE);
         LeftSidebar leftSidebar= new LeftSidebar();
         leftSidebarPanel.add(leftSidebar);
@@ -62,16 +42,15 @@ public class Main extends Composite {
     }
 
     private Element createContent(){
-        LIElement result = Document.get().createLIElement();
-        result.setInnerHTML("Something");
+        ContentView contentView = new ContentView();
+        Element result = Document.get().createLIElement();
+        result.setInnerHTML(contentView.contentViewHTML());
         return result;
     }
 
 
     public void setStorage(List<Map<String,String>> data){
         String result="";
-        storage.setWidth("200%");
-        storage.setHeight("70%");
         for (Map<String,String> content:
                 data) {
             result+=content.toString();
@@ -81,24 +60,14 @@ public class Main extends Composite {
     }
 
     public void setStorage(String data){
-        storage.setWidth("200%");
-        storage.setHeight("70%");
         storage.setText(data);
     }
 
     private void setClasses(){
         deleteButton.setStyleName("btn btn-danger");
         addButton.setStyleName("btn btn-success");
-        editButton.setStyleName("btn btn-primary");
-    }
-    public void setTitleText(String text){
-        title.setText(text);
-    }
-    public void setAuthorText(String text){
-        author.setText(text);
-    }
-    public void setCreatedText(String text){
-        created.setText(text);
+        storage.setWidth("200%");
+        storage.setHeight("70%");
     }
 
 }

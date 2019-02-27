@@ -20,10 +20,10 @@ public class LeftSidebar extends Composite{
     @UiField
     ListBox forLB;
 
-    private static LeftSidebarUiBinder ourUiBinder = GWT.create(LeftSidebarUiBinder.class);
+    private static LeftSidebarUiBinder uiBinder = GWT.create(LeftSidebarUiBinder.class);
 
     public LeftSidebar() {
-        initWidget(ourUiBinder.createAndBindUi(this));
+        initWidget(uiBinder.createAndBindUi(this));
         searchBox.setStyleName("form-control mr-sm-2 searchBox");
     }
 }

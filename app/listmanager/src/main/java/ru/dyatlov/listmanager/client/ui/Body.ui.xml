@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel>
+        <div class="body" style="padding: 10%;">
+            <div class="row">
+                <div class="col-md-3">
+                    <g:HTMLPanel ui:field="leftSidebarPanel">
+
+                    </g:HTMLPanel>
+                </div>
+                <div class="col-md-8">
+                    <g:Button ui:field="addButton" text="Add" />
+                    <g:Button ui:field="deleteButton" text="Delete" />
+                    <div class="row">
+                        <ul ui:field="contentList">
+                            <li ui:field="content">
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row test">
+                        <g:TextArea ui:field="storage"/>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>
