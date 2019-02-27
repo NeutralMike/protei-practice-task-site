@@ -5,35 +5,20 @@
         <div class="main" style="padding: 10%;">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="left-sidebar">
-                        <g:Label ui:field="filterLabel" text="Filter"/>
-                        <div class="row">
-                            <g:TextBox ui:field="searchBox"/>
-                        </div>
-                        <br/>
-                        <div class="row">
-                            <g:Label ui:field="forLabel" text="For"/>
-                            <g:ListBox ui:field="forLB" visibleItemCount="1">
-                                <g:item value="day">Day</g:item>
-                                <g:item value="week">Week</g:item>
-                                <g:item value="month">Month</g:item>
-                                <g:item value="allTime">All time</g:item>
-                            </g:ListBox>
-                        </div>
-                        <div class="row">
-                            <g:CheckBox ui:field="anonymousCheckbox"/>
-                            <g:Label ui:field="anonymousLabel" text="Anonymous"/>
-                        </div>
-                    </div>
+                    <g:HTMLPanel ui:field="leftSidebarPanel">
+
+                    </g:HTMLPanel>
                 </div>
                 <div class="col-md-8">
                     <g:Button ui:field="addButton" text="Add" />
                     <g:Button ui:field="deleteButton" text="Delete" />
                     <div class="row">
-                        <div class="col-1">
-                                <g:CheckBox ui:field="done"/>
-                        </div>
-                        <div class="col content">
+                        <ul ui:field="contentList">
+                            <li ui:field="content">
+                                <div class="col-1">
+                                    <g:CheckBox ui:field="done"/>
+                                </div>
+                        <div class="col">
                             <div class="row">
                                 <div class="col-1 preview">
                                     <g:Image ui:field="preview" width="50px" height="50px"/>
@@ -59,6 +44,8 @@
                                 </div>
                             </div>
                         </div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="row test">
                         <g:TextArea ui:field="storage"/>

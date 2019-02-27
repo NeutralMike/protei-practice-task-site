@@ -1,20 +1,17 @@
 package ru.dyatlov.listmanager.client.ui;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.*;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-//import java.awt.*;
 
 public class Table extends Composite {
 
@@ -28,15 +25,7 @@ public class Table extends Composite {
     @UiField
     Button editButton;
     @UiField
-    TextBox searchBox;
-    @UiField
-    Label filterLabel;
-    @UiField
-    CheckBox anonymousCheckbox;
-    @UiField
     CheckBox done;
-    @UiField
-    Label anonymousLabel;
     @UiField
     Image authorLogo;
     @UiField
@@ -48,8 +37,11 @@ public class Table extends Composite {
     @UiField
     Label title;
     @UiField
-    ListBox forLB;
-
+    UListElement contentList;
+    @UiField
+    LIElement content;
+    @UiField
+    Panel leftSidebarPanel;
 
     @UiField
     TextArea storage;
@@ -62,6 +54,18 @@ public class Table extends Composite {
         title.setText("Title");
         author.setText("Author");
         created.setText("Created");
+        content.getStyle().setDisplay(Style.Display.NONE);
+        LeftSidebar leftSidebar= new LeftSidebar();
+        leftSidebarPanel.add(leftSidebar);
+        contentList.appendChild(createContent());
+        contentList.appendChild(createContent());
+        contentList.appendChild(createContent());
+    }
+
+    private Element createContent(){
+        LIElement result = Document.get().createLIElement();
+        result.setInnerHTML("Something");
+        return result;
     }
 
 
@@ -87,7 +91,6 @@ public class Table extends Composite {
         deleteButton.setStyleName("btn btn-danger");
         addButton.setStyleName("btn btn-success");
         editButton.setStyleName("btn btn-primary");
-        searchBox.setStyleName("form-control mr-sm-2 searchBox");
     }
     public void setTitleText(String text){
         title.setText(text);

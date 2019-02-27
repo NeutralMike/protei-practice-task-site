@@ -1,0 +1,23 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel>
+        <g:Label ui:field="filterLabel" text="Filter"/>
+        <div class="row">
+            <g:TextBox ui:field="searchBox"/>
+        </div>
+        <br/>
+        <div class="row">
+            <g:Label ui:field="forLabel" text="For"/>
+            <g:ListBox ui:field="forLB" visibleItemCount="1">
+                <g:item value="day">Day</g:item>
+                <g:item value="week">Week</g:item>
+                <g:item value="month">Month</g:item>
+                <g:item value="allTime">All time</g:item>
+            </g:ListBox>
+        </div>
+        <div class="row">
+            <g:CheckBox ui:field="anonymousCheckbox"/>
+            <g:Label ui:field="anonymousLabel" text="Anonymous"/>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>
