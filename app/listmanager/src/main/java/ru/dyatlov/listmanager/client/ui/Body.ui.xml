@@ -14,8 +14,9 @@
                     <g:Button ui:field="deleteButton" text="Delete" />
                     <div class="row">
                         <div class="col-md-12">
-                                <ul ui:field="contentList">
-                                </ul>
+                            <g:HTMLPanel ui:field="contentBlock">
+
+                            </g:HTMLPanel>
                         </div>
                     </div>
                     <div class="row test">
