@@ -43,7 +43,7 @@ public class Body extends Composite {
     }
 
     private Element createContent(Map<String,String> content){
-        ContentView contentView = new ContentView();
+        ContentView contentView = new ContentView(content);
         Element result = Document.get().createLIElement();
         result.setInnerHTML(contentView.contentViewHTML());
         return result;

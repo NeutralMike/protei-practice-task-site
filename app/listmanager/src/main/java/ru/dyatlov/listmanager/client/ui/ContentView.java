@@ -5,6 +5,8 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.*;
 
+import java.util.Map;
+
 public class ContentView extends Composite {
     interface ContentUiBinder extends UiBinder<Widget, ContentView> {
     }
@@ -29,11 +31,16 @@ public class ContentView extends Composite {
 
     public ContentView() {
         initWidget(uiBinder.createAndBindUi(this));
-        authorLogo.setUrl("/images/preview.jpg");
-        preview.setUrl("/images/preview.jpg");
-        title.setText("Title");
-        author.setText("Author");
-        created.setText("Created");
+        editButton.setStyleName("btn btn-primary");
+        contentView.setStyleName("list-group-item list-group-item-action");
+    }
+    public ContentView(Map<String,String> content){
+        initWidget(uiBinder.createAndBindUi(this));
+        authorLogo.setUrl(content.get("authorLogo"));
+        preview.setUrl(content.get("preview"));
+        title.setText(content.get("title"));
+        author.setText(content.get("author"));
+        created.setText(content.get("created"));
         editButton.setStyleName("btn btn-primary");
         contentView.setStyleName("list-group-item list-group-item-action");
     }
