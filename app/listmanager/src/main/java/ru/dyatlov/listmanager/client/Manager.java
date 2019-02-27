@@ -9,7 +9,6 @@ import ru.dyatlov.listmanager.client.service.ManagerServiceAsync;
 import ru.dyatlov.listmanager.client.ui.*;
 import ru.dyatlov.model.client.Content;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,51 +17,51 @@ public class Manager implements EntryPoint {
     private ManagerServiceAsync managerService = GWT.create(ManagerService.class);
 
     public void onModuleLoad() {
-        Table table = new Table();
+        Main main = new Main();
         managerService.addContent("SomeTitle", "SomeAuthor", "/images/preview.jpg", "/images/preview.jpg", false, new AsyncCallback() {
             @Override
             public void onFailure(Throwable throwable) {
-                table.setCreatedText("AddWtF");
+                main.setCreatedText("AddWtF");
             }
 
             @Override
             public void onSuccess(Object o) {
-                table.setCreatedText("Added");
+                main.setCreatedText("Added");
             }
         });
         managerService.getContentList(new AsyncCallback<List<Content>>() {
             @Override
             public void onSuccess(List<Content> result) {
-                table.setTitleText(result.get(0).getTitle());
+                main.setTitleText(result.get(0).getTitle());
             }
 
             @Override
             public void onFailure(Throwable caught) {
-                table.setTitleText("Failed");
+                main.setTitleText("Failed");
             }
         });
         managerService.getMessage("Hi", new AsyncCallback<String>() {
             @Override
             public void onFailure(Throwable throwable) {
-                table.setAuthorText("Failed msg");
+                main.setAuthorText("Failed msg");
             }
 
             @Override
             public void onSuccess(String s) {
-                table.setAuthorText(s);
+                main.setAuthorText(s);
             }
         });
         managerService.getContentMap(new AsyncCallback<List<Map<String, String>>>() {
             @Override
             public void onFailure(Throwable throwable) {
-                table.setStorage("Failed");
+                main.setStorage("Failed");
             }
 
             @Override
             public void onSuccess(List<Map<String,String>> s) {
-                table.setStorage(s);
+                main.setStorage(s);
             }
         });
-        RootPanel.get().add(table);
+        RootPanel.get().add(main);
     }
 }

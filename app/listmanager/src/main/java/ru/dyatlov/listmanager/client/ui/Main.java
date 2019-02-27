@@ -2,7 +2,6 @@ package ru.dyatlov.listmanager.client.ui;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.*;
-import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.*;
@@ -13,9 +12,9 @@ import com.google.gwt.user.client.ui.Label;
 import java.util.List;
 import java.util.Map;
 
-public class Table extends Composite {
+public class Main extends Composite {
 
-    interface TableUiBinder extends UiBinder<Widget, Table> {}
+    interface TableUiBinder extends UiBinder<Widget, Main> {}
     private static TableUiBinder uiBinder = GWT.create(TableUiBinder.class);
 
     @UiField
@@ -46,7 +45,7 @@ public class Table extends Composite {
     @UiField
     TextArea storage;
 
-    public Table() {
+    public Main() {
         initWidget(uiBinder.createAndBindUi(this));
         setClasses();
         authorLogo.setUrl("/images/preview.jpg");
