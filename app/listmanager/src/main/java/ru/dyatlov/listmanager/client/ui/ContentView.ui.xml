@@ -17,7 +17,7 @@
                         <g:Label ui:field="title"/>
                     </div>
                     <div class="row description">
-                        <div class="col">
+                        <div class="col-10">
                             <div class="row">
                                 <g:Image ui:field="authorLogo" width="15px" height="15px"/>
                                 <g:Label ui:field="author"/>

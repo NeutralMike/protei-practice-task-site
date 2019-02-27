@@ -23,8 +23,6 @@ public class Body extends Composite {
     @UiField
     UListElement contentList;
     @UiField
-    LIElement content;
-    @UiField
     Panel leftSidebarPanel;
 
     @UiField
@@ -33,21 +31,23 @@ public class Body extends Composite {
     public Body() {
         initWidget(uiBinder.createAndBindUi(this));
         setClasses();
-        content.getStyle().setDisplay(Style.Display.NONE);
         LeftSidebar leftSidebar= new LeftSidebar();
         leftSidebarPanel.add(leftSidebar);
-        contentList.appendChild(createContent());
-        contentList.appendChild(createContent());
-        contentList.appendChild(createContent());
     }
 
-    private Element createContent(){
+    public void drawContentBlock(List<Map<String,String>> data){
+        for (Map<String,String>content:
+             data) {
+            contentList.appendChild(createContent(content));
+        }
+    }
+
+    private Element createContent(Map<String,String> content){
         ContentView contentView = new ContentView();
         Element result = Document.get().createLIElement();
         result.setInnerHTML(contentView.contentViewHTML());
         return result;
     }
-
 
     public void setStorage(List<Map<String,String>> data){
         String result="";

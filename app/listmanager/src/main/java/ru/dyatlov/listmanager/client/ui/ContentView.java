@@ -35,6 +35,7 @@ public class ContentView extends Composite {
         author.setText("Author");
         created.setText("Created");
         editButton.setStyleName("btn btn-primary");
+        contentView.setStyleName("list-group-item list-group-item-action");
     }
     public String contentViewHTML(){
         return contentView.toString();

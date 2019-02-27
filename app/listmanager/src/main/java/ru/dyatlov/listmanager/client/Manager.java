@@ -17,6 +17,17 @@ public class Manager implements EntryPoint {
 
     public void onModuleLoad() {
         Body body = new Body();
+        managerService.addContent("some title","sime author","/images/preview.jpg","/images/preview.jpg",false, new AsyncCallback() {
+            @Override
+            public void onFailure(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+
+            }
+        });
         managerService.getContentMap(new AsyncCallback<List<Map<String, String>>>() {
             @Override
             public void onFailure(Throwable throwable) {
@@ -24,8 +35,9 @@ public class Manager implements EntryPoint {
             }
 
             @Override
-            public void onSuccess(List<Map<String,String>> s) {
-                body.setStorage(s);
+            public void onSuccess(List<Map<String,String>> data) {
+                body.setStorage(data);
+                body.drawContentBlock(data);
             }
         });
         RootPanel.get().add(body);
