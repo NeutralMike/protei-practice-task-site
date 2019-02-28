@@ -1,5 +1,6 @@
 package ru.dyatlov.model.client;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -34,6 +35,7 @@ public class Content implements Serializable {
         result.put("preview",preview);
         result.put("authorLogo",authorLogo);
         result.put("anonymous",anonymous.toString());
+        result.put("created", created.toString());
         return result;
     }
 

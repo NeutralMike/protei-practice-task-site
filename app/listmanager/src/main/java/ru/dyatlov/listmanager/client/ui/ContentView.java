@@ -1,11 +1,13 @@
 package ru.dyatlov.listmanager.client.ui;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.*;
 
+import java.util.Date;
 import java.util.Map;
 
 public class ContentView extends Composite {
@@ -38,7 +40,10 @@ public class ContentView extends Composite {
         preview.setUrl(content.get("preview"));
         title.setText(content.get("title"));
         author.setText(content.get("author"));
-        created.setText(content.get("created"));
+        DateTimeFormat dateFormat = DateTimeFormat.getFormat("EEE MMM d HH:mm:ss 'MSK' yyyy");
+        Date tmp = dateFormat.parse(content.get("created"));
+        created.setText(DateTimeFormat.getFormat("d.MM.yy HH:mm").format(tmp));
+        created.setStyleName("created");
         editButton.setStyleName("btn btn-primary");
         contentView.setStyleName("list-group-item list-group-item-action");
     }
