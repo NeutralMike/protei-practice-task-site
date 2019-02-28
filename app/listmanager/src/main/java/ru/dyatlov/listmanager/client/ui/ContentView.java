@@ -13,7 +13,7 @@ public class ContentView extends Composite {
     }
     private static ContentUiBinder uiBinder = GWT.create(ContentUiBinder.class);
 
-    private String id;
+    String id;
     @UiField
     HTMLPanel contentView;
     @UiField
@@ -41,7 +41,9 @@ public class ContentView extends Composite {
         created.setText(content.get("created"));
         editButton.setStyleName("btn btn-primary");
         contentView.setStyleName("list-group-item list-group-item-action");
-        contentView.add(done.asWidget());
     }
 
+    public boolean isChecked(){
+        return done.isChecked();
+    }
 }

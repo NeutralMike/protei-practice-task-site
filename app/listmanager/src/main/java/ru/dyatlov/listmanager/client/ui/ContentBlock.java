@@ -9,6 +9,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,11 +21,18 @@ public class ContentBlock extends Composite {
     @UiField
     HTMLPanel contentBlock;
 
+    List<ContentView> contentViewList = new ArrayList<>();
+
     public ContentBlock(List<Map<String,String>> data) {
         initWidget(uiBinder.createAndBindUi(this));
         for (Map<String,String> content:
              data) {
-            contentBlock.add(new ContentView(content));
+            contentViewList.add(new ContentView(content));
+            contentBlock.add(contentViewList.get(contentViewList.size()-1));
         }
+    }
+
+    public List<ContentView> getContentViewList(){
+        return contentViewList;
     }
 }

@@ -7,9 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface ManagerServiceAsync {
-    void getMessage(String msg, AsyncCallback<String> callback);
     void getContentList(AsyncCallback<List<Content>> callback);
     void getContentMap(AsyncCallback<List<Map<String,String>>> callback);
     void addContent(String title, String author,String preview, String authorLogo, Boolean anonymous,AsyncCallback callback);
-
+    void deleteContent(int id,AsyncCallback callback);
 }

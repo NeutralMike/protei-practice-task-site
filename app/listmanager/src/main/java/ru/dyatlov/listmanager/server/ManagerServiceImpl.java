@@ -10,15 +10,17 @@ import java.util.Map;
 
 public class ManagerServiceImpl extends RemoteServiceServlet implements ManagerService {
     private Storage storage = new Storage();
-    public String getMessage(String msg) {
-        return "Client said: \"" + storage.getRecords().get(0).getTitle() + "\"<br>Server answered: \"Hi!\"";
-    }
     @Override
     public List<Content> getContentList(){
         return storage.getRecords();
     }
+    @Override
     public List<Map<String, String>> getContentMap(){ return storage.getRecordsMap();}
+    @Override
     public void addContent(String title, String author,String preview, String authorLogo, Boolean anonymous){
         storage.add(title,author,preview,authorLogo,anonymous);
+    }
+    public void deleteContent(int id){
+        storage.delete(id);
     }
 }

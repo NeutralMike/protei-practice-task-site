@@ -11,8 +11,11 @@ import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static ru.dyatlov.listmanager.client.Manager.INSTANCE;
 
 public class Body extends Composite {
 
@@ -24,29 +27,37 @@ public class Body extends Composite {
     @UiField
     Button addButton;
     @UiField
-    Panel contentBlock;
+    Panel contentBlockPanel;
     @UiField
     Panel leftSidebarPanel;
+
+    LeftSidebar sidebar = new LeftSidebar();
+    ContentBlock contentBlock;
+    List<ContentView> contentViewList= new ArrayList<>();
 
     @UiField
     TextArea storage;
 
     @UiHandler("deleteButton")
     void clickHandler(ClickEvent e){
-        for(int i=0;i<contentBlock.getElement().getFirstChild().getChildCount();i++){
-
+        for (ContentView content:
+             contentViewList) {
+            if(content.isChecked()){
+                INSTANCE.deleteRow(Integer.parseInt(content.id));
+            }
         }
-
     }
 
     public Body() {
         initWidget(uiBinder.createAndBindUi(this));
         setClasses();
-        leftSidebarPanel.add(new LeftSidebar());
+        leftSidebarPanel.add(sidebar);
     }
 
     public void setData(List<Map<String,String>> data){
-        contentBlock.add(new ContentBlock(data));
+        contentBlock=new ContentBlock(data);
+        contentBlockPanel.add(contentBlock);
+        contentViewList=contentBlock.getContentViewList();
     }
 
     public void setStorage(List<Map<String,String>> data){

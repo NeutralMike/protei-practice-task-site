@@ -12,8 +12,8 @@ import java.util.Map;
 @RemoteServiceRelativePath("ManagerService")
 public interface ManagerService extends RemoteService {
 
-    String getMessage(String msg);
     List<Content> getContentList();
     List<Map<String, String>> getContentMap();
     void addContent(String title, String author,String preview, String authorLogo, Boolean anonymous);
+    void deleteContent(int id);
 }
