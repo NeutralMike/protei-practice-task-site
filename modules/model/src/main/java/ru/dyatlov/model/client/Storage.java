@@ -18,9 +18,6 @@ public class Storage {
         return DB.getElementById(id);
     }
 
-    public List<Content> getRecords(){
-        return DB.getDB();
-    }
     public List<Map<String, String>> getRecordsMap(){
         return DB.getMap();
     }

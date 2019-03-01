@@ -10,25 +10,28 @@ import java.util.Map;
 public class DB {
 
     private static List<Content> db= new ArrayList<>();
+    private static int i=0;
 
     public DB(){
     }
 
     public static void add(String title, String author,String preview, String authorLogo, Boolean anonymous){
-        db.add(new Content(db.size(),title, author, preview, authorLogo, anonymous));
+        db.add(new Content(i++,title, author, preview, authorLogo, anonymous));
     }
 
     public static void delete(int id){
-        db.remove(id);
+        for (Content content:
+             db) {
+            if(content.getId()==id){
+                db.remove(content);
+            }
+        }
     }
 
     public static Map<String, String> getElementById(int id){
         return db.get(id).getMap();
     }
 
-    public static List<Content> getDB() {
-        return db;
-    }
     public static List<Map<String,String>> getMap(){
         List<Map<String,String>> result = new ArrayList<>();
         for (Content content:db

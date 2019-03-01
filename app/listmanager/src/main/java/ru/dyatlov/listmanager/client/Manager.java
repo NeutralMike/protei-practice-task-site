@@ -22,7 +22,7 @@ public class Manager implements EntryPoint {
     Body body = new Body();
 
     public void onModuleLoad() {
-//        addRow("SomeTitle","SomeAuthor","/images/preview.jpg","/images/preview.jpg",false);
+        addRow("SomeTitle","SomeAuthor","/images/preview.jpg","/images/preview.jpg",false);
         updateData();
         RootPanel.get().add(body);
     }
@@ -64,7 +64,6 @@ public class Manager implements EntryPoint {
 
             @Override
             public void onSuccess(Object o) {
-                updateData();
             }
         });
     }

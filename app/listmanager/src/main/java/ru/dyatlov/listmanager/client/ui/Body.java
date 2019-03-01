@@ -45,6 +45,7 @@ public class Body extends Composite {
                 INSTANCE.deleteRow(Integer.parseInt(content.id));
             }
         }
+        INSTANCE.updateData();
     }
 
     @UiHandler("addButton")
