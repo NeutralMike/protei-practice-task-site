@@ -1,6 +1,7 @@
 package ru.dyatlov.listmanager.client.ui;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -9,6 +10,8 @@ import com.google.gwt.user.client.ui.*;
 
 import java.util.Date;
 import java.util.Map;
+
+import static ru.dyatlov.listmanager.client.Manager.INSTANCE;
 
 public class ContentView extends Composite {
     interface ContentUiBinder extends UiBinder<Widget, ContentView> {
@@ -33,6 +36,11 @@ public class ContentView extends Composite {
     @UiField
     Label title;
 
+    @UiHandler("editButton")
+    void editClick(ClickEvent e){
+        INSTANCE.showEditBlock(Integer.parseInt(id));
+    }
+
     public ContentView(Map<String,String> content){
         initWidget(uiBinder.createAndBindUi(this));
         this.id=content.get("id");
@@ -49,6 +57,6 @@ public class ContentView extends Composite {
     }
 
     public boolean isChecked(){
-        return done.isChecked();
+        return done.getValue();
     }
 }

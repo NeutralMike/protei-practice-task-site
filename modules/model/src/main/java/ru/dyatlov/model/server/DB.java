@@ -22,8 +22,8 @@ public class DB {
         db.remove(id);
     }
 
-    public static Content getElementById(int id){
-        return db.get(id);
+    public static Map<String, String> getElementById(int id){
+        return db.get(id).getMap();
     }
 
     public static List<Content> getDB() {

@@ -1,0 +1,14 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:HTMLPanel>
+            <g:TextBox ui:field="title"/>
+            <g:TextBox ui:field="author"/>
+            <g:TextBox ui:field="preview"/>
+            <g:TextBox ui:field="authorLogo"/>
+            <g:CheckBox ui:field="anonymous"/>
+        <div class="row">
+            <g:Button ui:field="cancelButton" text="Cancel"/>
+            <g:SubmitButton ui:field="submitButton" text="Add"/>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

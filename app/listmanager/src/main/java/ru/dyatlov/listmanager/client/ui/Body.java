@@ -1,12 +1,10 @@
 package ru.dyatlov.listmanager.client.ui;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.*;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -27,25 +25,32 @@ public class Body extends Composite {
     @UiField
     Button addButton;
     @UiField
-    Panel contentBlockPanel;
+    Panel mainPanel;
     @UiField
     Panel leftSidebarPanel;
 
+    AddBlock addBlock = new AddBlock();
     LeftSidebar sidebar = new LeftSidebar();
-    ContentBlock contentBlock;
     List<ContentView> contentViewList= new ArrayList<>();
+
 
     @UiField
     TextArea storage;
 
     @UiHandler("deleteButton")
-    void clickHandler(ClickEvent e){
+    void deleteClick(ClickEvent e){
         for (ContentView content:
              contentViewList) {
             if(content.isChecked()){
                 INSTANCE.deleteRow(Integer.parseInt(content.id));
             }
         }
+    }
+
+    @UiHandler("addButton")
+    void addClick(ClickEvent e){
+        mainPanel.clear();
+        mainPanel.add(addBlock);
     }
 
     public Body() {
@@ -55,9 +60,15 @@ public class Body extends Composite {
     }
 
     public void setData(List<Map<String,String>> data){
-        contentBlock=new ContentBlock(data);
-        contentBlockPanel.add(contentBlock);
+        ContentBlock contentBlock=new ContentBlock(data);
+        mainPanel.clear();
+        mainPanel.add(contentBlock);
         contentViewList=contentBlock.getContentViewList();
+    }
+
+    public void showEditBlock(Map<String,String> content){
+        mainPanel.clear();
+        mainPanel.add(new EditBlock(content));
     }
 
     public void setStorage(List<Map<String,String>> data){

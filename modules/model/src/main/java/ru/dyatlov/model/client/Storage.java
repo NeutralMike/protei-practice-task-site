@@ -14,7 +14,7 @@ public class Storage {
     public void add(String title, String author,String preview, String authorLogo, Boolean anonymous){
         DB.add(title,author,preview,authorLogo, anonymous);
     }
-    public Content getElementById(int id){
+    public Map<String, String> getElementById(int id){
         return DB.getElementById(id);
     }
 

@@ -39,6 +39,8 @@ public class Content implements Serializable {
         return result;
     }
 
+
+
     public void setPreview(String preview){
         this.preview=preview;
     }

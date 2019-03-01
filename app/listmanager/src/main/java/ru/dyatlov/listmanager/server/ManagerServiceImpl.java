@@ -11,16 +11,17 @@ import java.util.Map;
 public class ManagerServiceImpl extends RemoteServiceServlet implements ManagerService {
     private Storage storage = new Storage();
     @Override
-    public List<Content> getContentList(){
-        return storage.getRecords();
-    }
-    @Override
     public List<Map<String, String>> getContentMap(){ return storage.getRecordsMap();}
     @Override
     public void addContent(String title, String author,String preview, String authorLogo, Boolean anonymous){
         storage.add(title,author,preview,authorLogo,anonymous);
     }
+    @Override
     public void deleteContent(int id){
         storage.delete(id);
+    }
+    @Override
+    public Map<String,String> getContentById(int id){
+        return storage.getElementById(id);
     }
 }
