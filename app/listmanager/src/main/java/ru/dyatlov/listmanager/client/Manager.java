@@ -18,8 +18,8 @@ public class Manager implements EntryPoint {
 
     public static final Manager INSTANCE=  new Manager();
 
-    private ManagerServiceAsync managerService = GWT.create(ManagerService.class);
-    Body body = new Body();
+    private static ManagerServiceAsync managerService = GWT.create(ManagerService.class);
+    private static Body body = new Body();
 
     public void onModuleLoad() {
         addRow("SomeTitle","SomeAuthor","/images/preview.jpg","/images/preview.jpg",false);
@@ -32,7 +32,7 @@ public class Manager implements EntryPoint {
         managerService.getContentById(id, new AsyncCallback<Map<String, String>>() {
             @Override
             public void onFailure(Throwable throwable) {
-                Window.alert("Failed to ger row");
+                Window.alert("Failed to get row"+id);
             }
 
             @Override
@@ -55,11 +55,25 @@ public class Manager implements EntryPoint {
             }
         });
     }
+
+    public void editRow(int id,String title, String author,String preview, String authorLogo, Boolean anonymous){
+        managerService.editContent(id,title,author,preview,authorLogo,anonymous, new AsyncCallback() {
+            @Override
+            public void onFailure(Throwable throwable) {
+                Window.alert("ErrorEditRow");
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                updateData();
+            }
+        });
+    }
     public void deleteRow(int id){
         managerService.deleteContent(id, new AsyncCallback() {
             @Override
             public void onFailure(Throwable throwable) {
-                Window.alert("ErrorDeleteRow");
+//                Window.alert("ErrorDeleteRow"+id);
             }
 
             @Override
@@ -76,7 +90,6 @@ public class Manager implements EntryPoint {
 
             @Override
             public void onSuccess(List<Map<String,String>> data) {
-                body.setStorage(data);
                 body.setData(data);
                 RootPanel.get().clear();
                 RootPanel.get().add(body);

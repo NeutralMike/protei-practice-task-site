@@ -3,7 +3,6 @@ package ru.dyatlov.listmanager.server;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import ru.dyatlov.listmanager.client.service.ManagerService;
 import ru.dyatlov.model.client.Storage;
-import ru.dyatlov.model.client.Content;
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +14,10 @@ public class ManagerServiceImpl extends RemoteServiceServlet implements ManagerS
     @Override
     public void addContent(String title, String author,String preview, String authorLogo, Boolean anonymous){
         storage.add(title,author,preview,authorLogo,anonymous);
+    }
+    @Override
+    public void editContent(int id,String title, String author,String preview, String authorLogo, Boolean anonymous){
+        storage.edit(id,title,author,preview,authorLogo,anonymous);
     }
     @Override
     public void deleteContent(int id){

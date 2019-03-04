@@ -1,4 +1,4 @@
-package ru.dyatlov.model.client;
+package ru.dyatlov.model.server;
 
 
 import java.io.Serializable;
@@ -64,6 +64,8 @@ public class Content implements Serializable {
     public Boolean getAnonymous() {
         return anonymous;
     }
+
+    public void setAnonymous(Boolean anonymous){this.anonymous=anonymous;}
 
     public String getAuthor() {
         return author;

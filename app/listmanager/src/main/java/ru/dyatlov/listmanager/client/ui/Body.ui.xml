@@ -19,10 +19,6 @@
                             </g:HTMLPanel>
                         </div>
                     </div>
-                    <div class="row test">
-                        <g:TextArea ui:field="storage"/>
-
-                    </div>
                 </div>
             </div>
         </div>

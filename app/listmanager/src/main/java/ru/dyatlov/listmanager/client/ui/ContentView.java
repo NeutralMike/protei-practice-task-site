@@ -46,7 +46,7 @@ public class ContentView extends Composite {
         this.id=content.get("id");
         authorLogo.setUrl(content.get("authorLogo"));
         preview.setUrl(content.get("preview"));
-        title.setText(content.get("title")+id);
+        title.setText(content.get("title"));
         author.setText(content.get("author"));
         DateTimeFormat dateFormat = DateTimeFormat.getFormat("EEE MMM d HH:mm:ss 'MSK' yyyy");
         Date tmp = dateFormat.parse(content.get("created"));

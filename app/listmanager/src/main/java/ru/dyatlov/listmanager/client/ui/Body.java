@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -32,10 +33,7 @@ public class Body extends Composite {
     AddBlock addBlock = new AddBlock();
     LeftSidebar sidebar = new LeftSidebar();
     List<ContentView> contentViewList= new ArrayList<>();
-
-
-    @UiField
-    TextArea storage;
+    EditBlock editBlock = new EditBlock();
 
     @UiHandler("deleteButton")
     void deleteClick(ClickEvent e){
@@ -69,28 +67,13 @@ public class Body extends Composite {
 
     public void showEditBlock(Map<String,String> content){
         mainPanel.clear();
-        mainPanel.add(new EditBlock(content));
-    }
-
-    public void setStorage(List<Map<String,String>> data){
-        String result="";
-        for (Map<String,String> content:
-                data) {
-            result+=content.toString();
-            result+="\n";
-        }
-        storage.setText(result);
-    }
-
-    public void setStorage(String data){
-        storage.setText(data);
+        editBlock.setData(content);
+        mainPanel.add(editBlock);
     }
 
     private void setClasses(){
         deleteButton.setStyleName("btn btn-danger");
         addButton.setStyleName("btn btn-success");
-        storage.setWidth("200%");
-        storage.setHeight("70%");
     }
 
 }

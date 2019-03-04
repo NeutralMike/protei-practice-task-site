@@ -14,6 +14,9 @@ public class Storage {
     public void add(String title, String author,String preview, String authorLogo, Boolean anonymous){
         DB.add(title,author,preview,authorLogo, anonymous);
     }
+    public void edit(int id,String title, String author,String preview, String authorLogo, Boolean anonymous){
+        DB.edit(id,title,author,preview,authorLogo, anonymous);
+    }
     public Map<String, String> getElementById(int id){
         return DB.getElementById(id);
     }

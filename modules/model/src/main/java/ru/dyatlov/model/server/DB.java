@@ -1,9 +1,8 @@
 package ru.dyatlov.model.server;
 
 
-import ru.dyatlov.model.client.Content;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,8 +27,28 @@ public class DB {
         }
     }
 
+    public static void edit(int id,String title, String author,String preview, String authorLogo, Boolean anonymous){
+        for (Content content:
+                db) {
+            if(content.getId()==id){
+                content.setTitle(title);
+                content.setAuthor(author);
+                content.setAuthorLogo(authorLogo);
+                content.setPreview(preview);
+                content.setAnonymous(anonymous);
+            }
+        }
+    }
+
     public static Map<String, String> getElementById(int id){
-        return db.get(id).getMap();
+        Map<String,String> response = new HashMap<>();
+        for (Content content:
+                db) {
+            if(content.getId()==id){
+                response = content.getMap();
+            }
+        }
+        return response;
     }
 
     public static List<Map<String,String>> getMap(){
